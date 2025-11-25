@@ -19,14 +19,14 @@ from lib.TrainInits import print_model_parameters
 
 
 #*************************************************************************#
-Mode = 'Train'
+Mode = 'train'
 DEBUG = 'True'
-DATASET = 'PEMSD4'      #PEMSD4 or PEMSD8
-DEVICE = 'cuda:0'
+DATASET = 'ILIREGIONS'      #PEMSD4 or PEMSD8
+DEVICE = 'cpu'
 MODEL = 'AGCRN'
 
 #get configuration
-config_file = './{}_{}.conf'.format(DATASET, MODEL)
+config_file = os.path.join(file_dir, "model", f"{DATASET}_{MODEL}.conf")
 #print('Read configuration file: %s' % (config_file))
 config = configparser.ConfigParser()
 config.read(config_file)
@@ -91,10 +91,10 @@ args.add_argument('--log_step', default=config['log']['log_step'], type=int)
 args.add_argument('--plot', default=config['log']['plot'], type=eval)
 args = args.parse_args()
 init_seed(args.seed)
-if torch.cuda.is_available():
-    torch.cuda.set_device(int(args.device[5]))
-else:
-    args.device = 'cpu'
+# if torch.cuda.is_available():
+#     torch.cuda.set_device(int(args.device[5]))
+# else:
+#     args.device = 'cpu'
 
 #init model
 model = Network(args)
