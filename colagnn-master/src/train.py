@@ -85,6 +85,7 @@ if args.mylog:
     if not os.path.exists(tensorboard_log_dir):
         os.makedirs(tensorboard_log_dir)
     writer = SummaryWriter(tensorboard_log_dir)
+    writer.close()
     shutil.rmtree(tensorboard_log_dir)
     logger.info('tensorboard logging to %s', tensorboard_log_dir)
 
