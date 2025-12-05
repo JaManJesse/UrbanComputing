@@ -52,7 +52,7 @@ ap.add_argument('--save_dir', type=str,  default='save',help='dir path to save t
 ap.add_argument('--gpu', type=int, default=3,  help='choose gpu 0-10')
 ap.add_argument('--lamda', type=float, default=0.01,  help='regularize params similarities of states')
 ap.add_argument('--bi', action='store_true', default=False,  help='bidirectional default false')
-ap.add_argument('--patience', type=int, default=200, help='patience default 100')
+ap.add_argument('--patience', type=int, default=100, help='patience default 100')
 ap.add_argument('--k', type=int, default=10,  help='kernels')
 ap.add_argument('--hidsp', type=int, default=15,  help='spatial dim')
 
